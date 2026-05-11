@@ -1,1 +1,667 @@
-"<!DOCTYPE html><html><head><title>My Site</title></head><body><h1>Hello World!</h1></body></html>" 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ryan New — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f5f2ed;
+      --ink: #1a1714;
+      --muted: #7a7268;
+      --accent: #2c4a6e;
+      --accent-light: #e8eef5;
+      --rule: #d4cfc8;
+      --card: #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 4rem;
+      background: rgba(245,242,237,0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--ink); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 80px;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6rem 4rem 6rem 4rem;
+      border-right: 1px solid var(--rule);
+    }
+
+    .hero-tag {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .hero-tag::before {
+      content: '';
+      display: block;
+      width: 2rem;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .hero-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.5rem, 6vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-name em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-desc {
+      color: var(--muted);
+      max-width: 36ch;
+      margin-bottom: 3rem;
+      line-height: 1.8;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--ink);
+      color: var(--bg);
+      text-decoration: none;
+      padding: 0.9rem 1.75rem;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      transition: background 0.2s, gap 0.2s;
+      width: fit-content;
+    }
+
+    .hero-cta:hover { background: var(--accent); gap: 1.1rem; }
+    .hero-cta span { font-size: 1rem; }
+
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-15deg);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18vw;
+      font-weight: 600;
+      color: rgba(44,74,110,0.05);
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+    }
+
+    .stat {
+      background: var(--bg);
+      padding: 2rem;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .stat:nth-child(2) { animation-delay: 0.1s; }
+    .stat:nth-child(3) { animation-delay: 0.2s; }
+    .stat:nth-child(4) { animation-delay: 0.3s; }
+
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      font-weight: 300;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 6rem 4rem;
+      border-top: 1px solid var(--rule);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .section-num {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 300;
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    #about .section-header {
+      grid-column: 1 / -1;
+      margin-bottom: 0;
+    }
+
+    .about-sidebar {
+      border-left: 2px solid var(--accent);
+      padding-left: 1.5rem;
+    }
+
+    .about-sidebar p {
+      color: var(--muted);
+      margin-bottom: 1rem;
+      font-size: 11px;
+      letter-spacing: 0.05em;
+    }
+
+    .about-sidebar strong {
+      display: block;
+      color: var(--ink);
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+
+    .about-body p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── SKILLS ── */
+    #skills { background: var(--ink); color: var(--bg); }
+    #skills .section-title { color: var(--bg); }
+    #skills .section-num { color: var(--muted); }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .skill-card {
+      background: var(--ink);
+      padding: 2.5rem;
+      transition: background 0.2s;
+    }
+
+    .skill-card:hover { background: var(--accent); }
+
+    .skill-category {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      opacity: 0.6;
+      margin-bottom: 1rem;
+    }
+
+    .skill-card:hover .skill-category { opacity: 1; color: rgba(255,255,255,0.7); }
+
+    .skill-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 300;
+      margin-bottom: 0.75rem;
+    }
+
+    .skill-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .skill-tag {
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.6rem;
+      border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.6);
+      transition: all 0.2s;
+    }
+
+    .skill-card:hover .skill-tag {
+      border-color: rgba(255,255,255,0.4);
+      color: rgba(255,255,255,0.9);
+    }
+
+    /* ── PROJECTS ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px;
+      height: 100%;
+      background: var(--accent);
+      transform: scaleY(0);
+      transition: transform 0.2s;
+      transform-origin: bottom;
+    }
+
+    .project-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+    .project-card:hover::before { transform: scaleY(1); }
+
+    .project-num {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .project-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-desc {
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .project-tag {
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.6rem;
+      background: var(--accent-light);
+      color: var(--accent);
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    #contact .section-header { grid-column: 1 / -1; }
+
+    .contact-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 300;
+      line-height: 1.6;
+      color: var(--ink);
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--bg);
+      padding: 1.5rem 2rem;
+      text-decoration: none;
+      color: var(--ink);
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .contact-link:hover { background: var(--ink); color: var(--bg); }
+
+    .contact-link-label {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .contact-link-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--rule);
+      padding: 2rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-left { animation: fadeUp 0.8s ease both; }
+    .hero-stats { animation: fadeUp 0.8s ease 0.2s both; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-left { padding: 4rem 1.5rem 2rem; border-right: none; border-bottom: 1px solid var(--rule); }
+      .hero-right { padding: 2rem 1.5rem; }
+      #about { grid-template-columns: 1fr; }
+      section { padding: 4rem 1.5rem; }
+      #contact { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#">Ryan New</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" style="border-top:none; padding:0;">
+    <div class="hero-left">
+      <div class="hero-tag">Portfolio</div>
+      <h1 class="hero-name">Ryan<br/><em>New</em></h1>
+      <p class="hero-desc">Economics & Quantitative Finance student at Singapore Management University, currently on exchange at the University of St. Gallen, Switzerland.</p>
+      <a href="#contact" class="hero-cta">Get in touch <span>→</span></a>
+    </div>
+    <div class="hero-right">
+      <div class="hero-bg-text">QF</div>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num">SMU</div>
+          <div class="stat-label">Home University</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">HSG</div>
+          <div class="stat-label">Exchange University</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">SG</div>
+          <div class="stat-label">Based in Singapore</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">QF</div>
+          <div class="stat-label">Specialisation</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">About Me</h2>
+    </div>
+    <div class="about-sidebar">
+      <p><strong>University</strong>Singapore Management University</p>
+      <p><strong>Exchange</strong>University of St. Gallen</p>
+      <p><strong>Degree</strong>Economics & Quantitative Finance</p>
+      <p><strong>Interests</strong>Options Trading, Stochastic Finance, Data Science</p>
+    </div>
+    <div class="about-body">
+      <p>I'm a data-driven student with a strong foundation in quantitative finance, statistical learning, and econometrics — bridging the gap between rigorous mathematics and real-world financial applications.</p>
+      <p>Currently on exchange at the University of St. Gallen in Switzerland, I am deepening my knowledge in stochastic finance and financial engineering, with a long-term goal of pursuing a Master of Financial Engineering.</p>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Skills</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-category">Quantitative</div>
+        <div class="skill-name">Financial Mathematics</div>
+        <div class="skill-items">
+          <span class="skill-tag">Stochastic Calculus</span>
+          <span class="skill-tag">Itô's Lemma</span>
+          <span class="skill-tag">Options Pricing</span>
+          <span class="skill-tag">Econometrics</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-category">Programming</div>
+        <div class="skill-name">Data & Analytics</div>
+        <div class="skill-items">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">R</span>
+          <span class="skill-tag">pandas</span>
+          <span class="skill-tag">scikit-learn</span>
+          <span class="skill-tag">statsmodels</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-category">Machine Learning</div>
+        <div class="skill-name">Statistical Learning</div>
+        <div class="skill-items">
+          <span class="skill-tag">Regression</span>
+          <span class="skill-tag">LASSO / Ridge</span>
+          <span class="skill-tag">Ensemble Methods</span>
+          <span class="skill-tag">Cross-Validation</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-category">Finance</div>
+        <div class="skill-name">Markets & Trading</div>
+        <div class="skill-items">
+          <span class="skill-tag">Options Flow</span>
+          <span class="skill-tag">Implied Volatility</span>
+          <span class="skill-tag">Derivatives</span>
+          <span class="skill-tag">Risk Analysis</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Projects</h2>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-num">001</div>
+        <div class="project-title">FraudFinder</div>
+        <p class="project-desc">Credit card fraud detection system using ensemble modelling, VAE, CatBoost, and neural networks with cost-weighted predictions.</p>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">CatBoost</span>
+          <span class="project-tag">Neural Networks</span>
+          <span class="project-tag">ML</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-num">002</div>
+        <div class="project-title">HDB Resale Price Predictor</div>
+        <p class="project-desc">Ensemble machine learning model to predict Singapore HDB resale flat prices using regression and boosting techniques.</p>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">Ensemble Methods</span>
+          <span class="project-tag">Regression</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-num">003</div>
+        <div class="project-title">Telegram Bot</div>
+        <p class="project-desc">Feature-rich Telegram bot with Wordle and Tic Tac Toe, deployed via GitHub and Railway.</p>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">Railway</span>
+          <span class="project-tag">GitHub</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Contact</h2>
+    </div>
+    <div class="contact-text">
+      Interested in working together or just want to connect? Feel free to reach out.
+    </div>
+    <div class="contact-links">
+      <a class="contact-link" href="mailto:newr273@gmail.com">
+        <span class="contact-link-label">Email</span>
+        <span class="contact-link-value">newr273@gmail.com</span>
+      </a>
+      <a class="contact-link" href="https://www.linkedin.com/in/ryan-new-47331a23a/" target="_blank">
+        <span class="contact-link-label">LinkedIn</span>
+        <span class="contact-link-value">ryan-new-47331a23a</span>
+      </a>
+      <a class="contact-link" href="https://github.com/Zennox15" target="_blank">
+        <span class="contact-link-label">GitHub</span>
+        <span class="contact-link-value">Zennox15</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2026 Ryan New</span>
+    <span>Economics & Quantitative Finance</span>
+  </footer>
+
+</body>
+</html>
