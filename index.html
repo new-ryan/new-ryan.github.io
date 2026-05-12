@@ -392,6 +392,109 @@
       color: var(--accent);
     }
 
+    /* ── TUITION ── */
+    .tuition-intro {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--muted);
+      max-width: 70ch;
+      margin-bottom: 3rem;
+    }
+
+    .tuition-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .tuition-card {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .tuition-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+
+    .tuition-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .tuition-subject {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 0.25rem;
+    }
+
+    .tuition-levels {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .tuition-desc {
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .tuition-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tuition-tag {
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.6rem;
+      background: var(--accent-light);
+      color: var(--accent);
+    }
+
+    .tuition-experience {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+    }
+
+    .exp-item {
+      background: var(--bg);
+      padding: 2.5rem;
+    }
+
+    .exp-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      margin-bottom: 0.25rem;
+    }
+
+    .exp-role {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .exp-desc {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
     /* ── CONTACT ── */
     #contact {
       display: grid;
@@ -474,6 +577,7 @@
       #about { grid-template-columns: 1fr; }
       section { padding: 4rem 1.5rem; }
       #contact { grid-template-columns: 1fr; }
+      .tuition-experience { grid-template-columns: 1fr; }
       footer { flex-direction: column; gap: 0.5rem; text-align: center; }
     }
   </style>
@@ -487,6 +591,7 @@
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#tuition">Tuition</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -535,6 +640,7 @@
       <p><strong>Interests</strong>Options Trading, Stochastic Finance, Data Science</p>
     </div>
     <div class="about-body">
+      <p>Hi, I'm Ryan — an aspiring quantitative trader with a passion for uncovering market inefficiencies and turning data into actionable trade ideas. I actively trade equities and am constantly on the hunt for new opportunities where rigorous analysis meets real market dynamics.</p>
       <p>I'm a data-driven student with a strong foundation in quantitative finance, statistical learning, and econometrics — bridging the gap between rigorous mathematics and real-world financial applications.</p>
       <p>Currently on exchange at the University of St. Gallen in Switzerland, I am deepening my knowledge in stochastic finance and financial engineering, with a long-term goal of pursuing a Master of Financial Engineering.</p>
     </div>
@@ -621,13 +727,74 @@
       </div>
       <div class="project-card">
         <div class="project-num">003</div>
-        <div class="project-title">Telegram Bot</div>
-        <p class="project-desc">Feature-rich Telegram bot with Wordle and Tic Tac Toe, deployed via GitHub and Railway.</p>
+        <div class="project-title">Derivative Hedging via Reinforcement Learning</div>
+        <p class="project-desc">Trained a reinforcement learning agent to dynamically hedge derivative positions, learning optimal hedging strategies through interaction with a simulated market environment.</p>
         <div class="project-tags">
           <span class="project-tag">Python</span>
-          <span class="project-tag">Railway</span>
-          <span class="project-tag">GitHub</span>
+          <span class="project-tag">Reinforcement Learning</span>
+          <span class="project-tag">Derivatives</span>
+          <span class="project-tag">Options</span>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TUITION -->
+  <section id="tuition">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Tuition</h2>
+    </div>
+    <div class="tuition-intro">
+      <p>Beyond finance and data science, I have extensive experience as a mathematics and physics educator — having taught at Math Arena and running my own private tuition practice across a wide range of levels and curricula.</p>
+    </div>
+    <div class="tuition-grid">
+      <div class="tuition-card">
+        <div class="tuition-icon">∑</div>
+        <div class="tuition-subject">Mathematics</div>
+        <div class="tuition-levels">Primary · Secondary · Junior College</div>
+        <p class="tuition-desc">Comprehensive mathematics tuition from Primary School foundations all the way through to Junior College H2 Math, tailored to each student's pace and learning style.</p>
+        <div class="tuition-tags">
+          <span class="tuition-tag">Primary Math</span>
+          <span class="tuition-tag">O-Level E-Math</span>
+          <span class="tuition-tag">O-Level A-Math</span>
+          <span class="tuition-tag">H1 / H2 Math</span>
+        </div>
+      </div>
+      <div class="tuition-card">
+        <div class="tuition-icon">🏆</div>
+        <div class="tuition-subject">Olympiad Coaching</div>
+        <div class="tuition-levels">Competition Mathematics</div>
+        <p class="tuition-desc">Specialist coaching for students aiming to compete at the olympiad level — developing deep problem-solving techniques, mathematical intuition, and competitive exam strategies.</p>
+        <div class="tuition-tags">
+          <span class="tuition-tag">AMC</span>
+          <span class="tuition-tag">SMO</span>
+          <span class="tuition-tag">Problem Solving</span>
+          <span class="tuition-tag">Competition Prep</span>
+        </div>
+      </div>
+      <div class="tuition-card">
+        <div class="tuition-icon">⚛</div>
+        <div class="tuition-subject">Physics</div>
+        <div class="tuition-levels">GCE O-Level</div>
+        <p class="tuition-desc">GCE O-Level Physics tuition covering both Combined Physics and Pure Physics syllabuses, with a focus on conceptual understanding and exam technique.</p>
+        <div class="tuition-tags">
+          <span class="tuition-tag">Combined Physics</span>
+          <span class="tuition-tag">Pure Physics</span>
+          <span class="tuition-tag">O-Level</span>
+        </div>
+      </div>
+    </div>
+    <div class="tuition-experience">
+      <div class="exp-item">
+        <div class="exp-name">Math Arena</div>
+        <div class="exp-role">Mathematics Tutor</div>
+        <p class="exp-desc">Taught structured mathematics classes at one of Singapore's leading tuition centres, delivering curriculum-aligned lessons and supporting students in achieving their academic goals.</p>
+      </div>
+      <div class="exp-item">
+        <div class="exp-name">Private Tuition</div>
+        <div class="exp-role">Independent Educator</div>
+        <p class="exp-desc">Running a private tuition practice offering personalised 1-on-1 and small group sessions across mathematics and physics, from primary level through to junior college.</p>
       </div>
     </div>
   </section>
@@ -635,7 +802,7 @@
   <!-- CONTACT -->
   <section id="contact">
     <div class="section-header">
-      <span class="section-num">04</span>
+      <span class="section-num">05</span>
       <h2 class="section-title">Contact</h2>
     </div>
     <div class="contact-text">
@@ -650,9 +817,9 @@
         <span class="contact-link-label">LinkedIn</span>
         <span class="contact-link-value">ryan-new-47331a23a</span>
       </a>
-      <a class="contact-link" href="https://github.com/Zennox15" target="_blank">
+      <a class="contact-link" href="https://github.com/new-ryan" target="_blank">
         <span class="contact-link-label">GitHub</span>
-        <span class="contact-link-value">Zennox15</span>
+        <span class="contact-link-value">new-ryan</span>
       </a>
     </div>
   </section>
