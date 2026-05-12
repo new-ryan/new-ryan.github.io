@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ryan New — Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -114,6 +114,8 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: center;
+      text-align: center;
       padding: 0 4rem;
       padding-top: 80px;
     }
@@ -121,17 +123,18 @@
     .hero-greeting {
       font-size: 1.1rem;
       color: var(--muted);
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
       letter-spacing: 0.05em;
     }
 
     .hero-name {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(5rem, 12vw, 10rem);
+      font-size: clamp(5rem, 14vw, 12rem);
       font-weight: 300;
-      line-height: 0.95;
+      line-height: 1;
       letter-spacing: -0.02em;
       margin-bottom: 2rem;
+      white-space: nowrap;
     }
 
     .hero-name em {
@@ -143,7 +146,7 @@
       font-size: 1rem;
       color: var(--muted);
       letter-spacing: 0.05em;
-      margin-bottom: 2.5rem;
+      margin-bottom: 1.5rem;
     }
 
     .hero-desc {
@@ -157,6 +160,7 @@
       display: flex;
       gap: 1rem;
       align-items: center;
+      justify-content: center;
       flex-wrap: wrap;
     }
 
@@ -246,10 +250,10 @@
     }
 
     .about-body p {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.35rem;
-      font-weight: 300;
-      line-height: 1.8;
+      font-family: 'Georgia', serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      line-height: 1.9;
       color: var(--ink);
       margin-bottom: 1.5rem;
     }
@@ -485,11 +489,11 @@
     #contact {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
+      gap: 2rem;
+      align-items: start;
     }
 
-    #contact .section-header { grid-column: 1 / -1; }
+    #contact .section-header { grid-column: 1 / -1; margin-bottom: 1rem; }
 
     .contact-text {
       font-family: 'Cormorant Garamond', serif;
@@ -612,7 +616,7 @@
       nav { padding: 1rem 1.5rem; }
       .nav-links { gap: 1.5rem; }
       .hero { padding: 6rem 1.5rem 3rem; }
-      .hero-name { font-size: clamp(4rem, 18vw, 6rem); }
+      .hero-name { font-size: clamp(3.5rem, 14vw, 6rem); white-space: normal; text-align: center; }
       #about { grid-template-columns: 1fr; }
       section { padding: 4rem 1.5rem; }
       #contact { grid-template-columns: 1fr; }
@@ -646,7 +650,7 @@
   <!-- HERO -->
   <section class="hero" style="border-top:none;">
     <p class="hero-greeting">Hello! 👋</p>
-    <h1 class="hero-name">Ryan<br/><em>New</em></h1>
+    <h1 class="hero-name">Ryan <em>New</em></h1>
     <p class="hero-role">Aspiring Quantitative Trader</p>
     <p class="hero-desc">Economics &amp; Quantitative Finance student at Singapore Management University.</p>
     <div class="hero-social">
@@ -705,22 +709,6 @@
           <div class="exp-title">Strategy and Transactions: Valuation, Modelling and Economics Intern</div>
           <div class="exp-company">EY-Parthenon · Singapore · On-site</div>
           <p>Supported the Strategy and Transactions team with financial valuation, modelling, and economic analysis across a range of client engagements.</p>
-        </div>
-      </div>
-      <div class="exp-row">
-        <div class="exp-date">2021 – 2022</div>
-        <div class="exp-content">
-          <div class="exp-title">Mathematics Tutor</div>
-          <div class="exp-company">Math Arena · Singapore</div>
-          <p>Taught structured mathematics classes at one of Singapore's leading tuition centres, delivering curriculum-aligned lessons and supporting students in achieving their academic goals.</p>
-        </div>
-      </div>
-      <div class="exp-row">
-        <div class="exp-date">2022 – Present</div>
-        <div class="exp-content">
-          <div class="exp-title">Independent Educator</div>
-          <div class="exp-company">Private Tuition · Singapore</div>
-          <p>Running a private tuition practice offering personalised 1-on-1 and small group sessions across mathematics and physics, from primary level through to junior college.</p>
         </div>
       </div>
     </div>
