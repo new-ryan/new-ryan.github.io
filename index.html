@@ -489,14 +489,15 @@
     }
 
     /* ── CONTACT ── */
-    #contact {
+    #contact { }
+    #contact .section-header { margin-bottom: 2rem; }
+
+    .contact-body {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2rem;
+      gap: 3rem;
       align-items: start;
     }
-
-    #contact .section-header { grid-column: 1 / -1; margin-bottom: 1rem; }
 
     .contact-text {
       font-family: 'Cormorant Garamond', serif;
@@ -875,22 +876,24 @@
       <span class="section-num">06</span>
       <h2 class="section-title">Contact</h2>
     </div>
-    <div class="contact-text">
-      Interested in working together or just want to connect? Feel free to reach out.
-    </div>
-    <div class="contact-links">
-      <a class="contact-link" href="mailto:newr273@gmail.com">
-        <span class="contact-link-label">Email</span>
-        <span class="contact-link-value">newr273@gmail.com</span>
-      </a>
-      <a class="contact-link" href="https://www.linkedin.com/in/new-ryan/" target="_blank">
-        <span class="contact-link-label">LinkedIn</span>
-        <span class="contact-link-value">new-ryan</span>
-      </a>
-      <a class="contact-link" href="https://github.com/new-ryan" target="_blank">
-        <span class="contact-link-label">GitHub</span>
-        <span class="contact-link-value">new-ryan</span>
-      </a>
+    <div class="contact-body">
+      <div class="contact-text">
+        Interested in working together or just want to connect? Feel free to reach out.
+      </div>
+      <div class="contact-links">
+        <a class="contact-link" href="mailto:newr273@gmail.com">
+          <span class="contact-link-label">Email</span>
+          <span class="contact-link-value">newr273@gmail.com</span>
+        </a>
+        <a class="contact-link" href="https://www.linkedin.com/in/new-ryan/" target="_blank">
+          <span class="contact-link-label">LinkedIn</span>
+          <span class="contact-link-value">new-ryan</span>
+        </a>
+        <a class="contact-link" href="https://github.com/new-ryan" target="_blank">
+          <span class="contact-link-label">GitHub</span>
+          <span class="contact-link-value">new-ryan</span>
+        </a>
+      </div>
     </div>
   </section>
 
