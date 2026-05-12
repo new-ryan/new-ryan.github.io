@@ -489,22 +489,42 @@
     }
 
     /* ── CONTACT ── */
-    #contact { }
-    #contact .section-header { margin-bottom: 2rem; }
-
-    .contact-body {
+    .contact-top {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 3rem;
-      align-items: start;
+      align-items: stretch;
+    }
+
+    .contact-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .contact-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 300;
+      display: flex;
+      align-items: baseline;
+      gap: 1.5rem;
+    }
+
+    .contact-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--muted);
     }
 
     .contact-text {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem;
+      font-size: 1.4rem;
       font-weight: 300;
       line-height: 1.6;
       color: var(--ink);
+      padding-bottom: 1.5rem;
     }
 
     .contact-links {
@@ -872,13 +892,14 @@
 
   <!-- CONTACT -->
   <section id="contact">
-    <div class="section-header">
-      <span class="section-num">06</span>
-      <h2 class="section-title">Contact</h2>
-    </div>
-    <div class="contact-body">
-      <div class="contact-text">
-        Interested in working together or just want to connect? Feel free to reach out.
+    <div class="contact-top">
+      <div class="contact-left">
+        <h2 class="contact-heading">
+          <span class="contact-num">06</span>Contact
+        </h2>
+        <div class="contact-text">
+          Interested in working together or just want to connect? Feel free to reach out.
+        </div>
       </div>
       <div class="contact-links">
         <a class="contact-link" href="mailto:newr273@gmail.com">
